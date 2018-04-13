@@ -17,7 +17,7 @@ public class TestServiceConImpl implements TestServiceController{
             
     @Override
     public String getResponse(String data) {
-        return data+" hey babe.. from controller :)";
+        return data+" test response from controller :)";
     }
 
     @Override
