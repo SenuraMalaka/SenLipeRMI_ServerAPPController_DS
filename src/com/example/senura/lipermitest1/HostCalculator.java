@@ -51,16 +51,7 @@ public class HostCalculator {
 
     return newArray;
 }
-    
-    
-    private static String[] arrayStringPush(String item, String[] oldArray) {
-    int len = oldArray.length;
-    String[] newArray = new String[len+1];
-    System.arraycopy(oldArray, 0, newArray, 0, len);
-    newArray[len] = item;
-
-    return newArray;
-}
+   
   
     
     
