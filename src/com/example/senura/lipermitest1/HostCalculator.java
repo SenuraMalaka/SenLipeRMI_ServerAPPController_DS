@@ -31,6 +31,16 @@ public class HostCalculator {
     }
     
     
+    public static int [] getGetCount(){
+    return GETCount;
+    }
+    
+    
+    public static List<String> getIPs(){
+    return ipAdresses;
+    }
+    
+    
     
     
     private static int[] arrayIntPush(int item, int[] oldArray) {

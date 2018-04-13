@@ -25,6 +25,21 @@ public class TestServiceConImpl implements TestServiceController{
         HostCalculator.appendHost(count, ipAddress);
     }
 
+    @Override
+    public String getClientInfo() {
+        String cInfo="";
+        String[] IPs=HostCalculator.getIPs().toArray(new String[0]);
+        int[] getCount=HostCalculator.getGetCount();
+        
+        if(IPs.length>0 && IPs.length == getCount.length){
+        for(int i = 0; i< getCount.length; i++){
+        cInfo+=getCount[i]+" >> has "+IPs[i]+"\n";
+        }
+        }
+        
+        return  cInfo;
+    }
+
  
 
     
