@@ -33,7 +33,7 @@ public class TestServiceConImpl implements TestServiceController{
         
         if(IPs.length>0 && IPs.length == getCount.length){
         for(int i = 0; i< getCount.length; i++){
-        cInfo+=getCount[i]+" >> has "+IPs[i]+"\n";
+        cInfo+=IPs[i]+" >> has "+getCount[i]+"\n";
         }
         }
         
