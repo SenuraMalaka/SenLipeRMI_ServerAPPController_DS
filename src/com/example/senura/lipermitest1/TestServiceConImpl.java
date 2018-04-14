@@ -21,19 +21,20 @@ public class TestServiceConImpl implements TestServiceController{
     }
 
     @Override
-    public void setDDOSCount(int count, String ipAddress) {
-        HostCalculator.appendHost(count, ipAddress);
+    public void setDDOSCount(int count, String ipAddress, String hostName) {
+        HostCalculator.appendHost(count, ipAddress,hostName);
     }
 
     @Override
     public String getClientInfo() {
         String cInfo="";
+        String[] HNs=HostCalculator.getHostNames().toArray(new String[0]);
         String[] IPs=HostCalculator.getIPs().toArray(new String[0]);
         int[] getCount=HostCalculator.getGetCount();
         
-        if(IPs.length>0 && IPs.length == getCount.length){
+        if(IPs.length>0 && IPs.length == getCount.length && IPs.length == HNs.length){
         for(int i = 0; i< getCount.length; i++){
-        cInfo+=IPs[i]+" >> has "+getCount[i]+"\n";
+        cInfo+=IPs[i]+" ("+HNs[i]+") "+ " >> has "+getCount[i]+"\n";
         }
         }
         

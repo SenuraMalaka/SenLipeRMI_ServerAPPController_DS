@@ -18,12 +18,15 @@ public class HostCalculator {
     private static int [] GETCount= {};
     //private static String[] ipAdresses={};
     private static List<String> ipAdresses = new ArrayList<String>();
+    private static List<String> hostNames = new ArrayList<String>();
     
-    public static void appendHost(int count, String ipAddress){
+    public static void appendHost(int count, String ipAddress,String hostName){
         GETCount=arrayIntPush(count, GETCount);
         ipAdresses.add(ipAddress);
+        hostNames.add(hostName);
         
-        System.out.println("array Gcount"+Arrays.toString(ipAdresses.toArray()));
+        System.out.println("array Ipcount"+Arrays.toString(ipAdresses.toArray()));
+        System.out.println("array Hcount"+Arrays.toString(hostNames.toArray()));
         //System.out.println("array ip = "+GETCount[0]);
         System.out.println("array Gcount"+Arrays.toString(GETCount));
         
@@ -38,6 +41,10 @@ public class HostCalculator {
     
     public static List<String> getIPs(){
     return ipAdresses;
+    }
+    
+    public static List<String> getHostNames(){
+    return hostNames;
     }
     
     
