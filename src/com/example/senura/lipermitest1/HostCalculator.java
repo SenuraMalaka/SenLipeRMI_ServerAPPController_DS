@@ -47,6 +47,13 @@ public class HostCalculator {
     return hostNames;
     }
     
+    //when server is down
+    public static void resetTheBotStatus(){
+            GETCount=new int[]{};
+            ipAdresses.clear();
+            hostNames.clear();
+    }
+    
     
     
     

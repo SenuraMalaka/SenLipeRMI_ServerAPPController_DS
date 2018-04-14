@@ -23,6 +23,7 @@ public class TestServer {
     IServerListener serverListener1=null;
     CallHandler callHandler=null;
    TestServiceController interfaceImplementation=null;
+   private final static String serverAddress="192.168.1.4";
     
     public TestServer () throws LipeRMIException, IOException {
 
@@ -52,12 +53,18 @@ public class TestServer {
 
             @Override
             public void clientDisconnected(Socket socket) {
-                System.out.println(TimeClass.getTime()+"Bot Disconnected: " + socket.getInetAddress());
+                System.out.println(TimeClass.getTime()+"Bot Disconnected: " + socket.getInetAddress().getHostAddress());
+                
+                if(socket.getInetAddress().getHostAddress().equals(serverAddress)){
+                    HostCalculator.resetTheBotStatus();
+                    System.out.println("resetedddddd");
+                }
+                
             }
 
             @Override
             public void clientConnected(Socket socket) {
-                System.out.println(TimeClass.getTime()+"Bot Connected: " + socket.getInetAddress());
+                System.out.println(TimeClass.getTime()+"Bot Connected: " + socket.getInetAddress().getHostAddress());
             }
             
         };
