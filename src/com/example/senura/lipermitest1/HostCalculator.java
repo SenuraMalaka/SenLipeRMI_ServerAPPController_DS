@@ -8,6 +8,7 @@ package com.example.senura.lipermitest1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -19,6 +20,11 @@ public class HostCalculator {
     //private static String[] ipAdresses={};
     private static List<String> ipAdresses = new ArrayList<String>();
     private static List<String> hostNames = new ArrayList<String>();
+    
+    
+    /////
+    private static int proposedDDOSCount=100;
+    ///
     
     public static void appendHost(int count, String ipAddress,String hostName){
         GETCount=arrayIntPush(count, GETCount);
@@ -65,6 +71,19 @@ public class HostCalculator {
 
     return newArray;
 }
+    
+    public static int getTheIndexOfHost(String ipAdrs){
+        return ipAdresses.indexOf(ipAdrs);
+    }
+    
+    public static int calculateTheCountForThisBot(String ipAdrs){
+      
+        int getCount =Arrays.asList(GETCount).indexOf(getTheIndexOfHost(ipAdrs));
+        int totalSumofGetsFromClients=IntStream.of(GETCount).sum();
+        
+        return (proposedDDOSCount/totalSumofGetsFromClients)*getCount;
+        
+    }
    
   
     

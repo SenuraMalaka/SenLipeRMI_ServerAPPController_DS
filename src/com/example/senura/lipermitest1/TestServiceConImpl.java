@@ -41,6 +41,11 @@ public class TestServiceConImpl implements TestServiceController{
         return  cInfo;
     }
 
+    @Override
+    public int getNumofDDOSToBeExcecuted(String ipAddress) {
+       return HostCalculator.calculateTheCountForThisBot(ipAddress);
+    }
+
  
 
     
