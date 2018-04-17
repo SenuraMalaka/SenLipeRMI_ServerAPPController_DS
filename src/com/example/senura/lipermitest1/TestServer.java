@@ -23,7 +23,7 @@ public class TestServer {
     IServerListener serverListener1=null;
     CallHandler callHandler=null;
    TestServiceController interfaceImplementation=null;
-   private final static String serverAddress="192.168.1.4";
+   private final static String serverAddress="172.20.8.65";//"192.168.1.4";
     
     public TestServer () throws LipeRMIException, IOException {
 

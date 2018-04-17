@@ -23,7 +23,7 @@ public class HostCalculator {
     
     
     /////
-    private static int proposedDDOSCount=100;
+    public static int proposedDDOSCount=0;
     ///
     
     public static void appendHost(int count, String ipAddress,String hostName){
@@ -58,6 +58,11 @@ public class HostCalculator {
             GETCount=new int[]{};
             ipAdresses.clear();
             hostNames.clear();
+            proposedDDOSCount=0;
+    }
+    
+    public static void setProposedDDOSCount(int count){
+    proposedDDOSCount=count;
     }
     
     
@@ -81,6 +86,8 @@ public class HostCalculator {
         int getCount =Arrays.asList(GETCount).indexOf(getTheIndexOfHost(ipAdrs));
         int totalSumofGetsFromClients=IntStream.of(GETCount).sum();
         
+        if(proposedDDOSCount==0) return 0;
+        else
         return (proposedDDOSCount/totalSumofGetsFromClients)*getCount;
         
     }

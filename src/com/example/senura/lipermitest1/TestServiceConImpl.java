@@ -46,6 +46,12 @@ public class TestServiceConImpl implements TestServiceController{
        return HostCalculator.calculateTheCountForThisBot(ipAddress);
     }
 
+    @Override
+    public void setProposedDDOSCount(int count) {
+        HostCalculator.setProposedDDOSCount(count);
+        System.out.println("setProposedDDOSCount called and the value is = "+HostCalculator.proposedDDOSCount);
+    }
+
  
 
     
