@@ -17,15 +17,12 @@ import java.util.stream.IntStream;
 public class HostCalculator {
     
     private static int [] GETCount= {};
-    //private static String[] ipAdresses={};
     private static List<String> ipAdresses = new ArrayList<String>();
     private static List<String> hostNames = new ArrayList<String>();
     
     
-    /////
-    public static int proposedDDOSCount=0;
-    ///
-    
+    private static int proposedDDOSCount=0;
+
     public static void appendHost(int count, String ipAddress,String hostName){
         GETCount=arrayIntPush(count, GETCount);
         ipAdresses.add(ipAddress);
@@ -33,7 +30,6 @@ public class HostCalculator {
         
         System.out.println("array Ipcount"+Arrays.toString(ipAdresses.toArray()));
         System.out.println("array Hcount"+Arrays.toString(hostNames.toArray()));
-        //System.out.println("array ip = "+GETCount[0]);
         System.out.println("array Gcount"+Arrays.toString(GETCount));
         
         
@@ -65,6 +61,10 @@ public class HostCalculator {
     proposedDDOSCount=count;
     }
     
+    public static int getProposedDDOSCount(){
+    return proposedDDOSCount;
+    }
+    
     
     
     
@@ -82,13 +82,27 @@ public class HostCalculator {
     }
     
     public static int calculateTheCountForThisBot(String ipAdrs){
+        
+        float getCount =GETCount[getTheIndexOfHost(ipAdrs)];
       
-        int getCount =Arrays.asList(GETCount).indexOf(getTheIndexOfHost(ipAdrs));
-        int totalSumofGetsFromClients=IntStream.of(GETCount).sum();
+        float totalSumofGetsFromClients=IntStream.of(GETCount).sum();
+        
+        System.out.println("index of host = "+getTheIndexOfHost(ipAdrs));
+        System.out.println(" proposed ddos count = "+proposedDDOSCount);
+        System.out.println(" total sum of gets from clients= "+totalSumofGetsFromClients);
+        System.out.println(" get count = "+getCount);
+        
         
         if(proposedDDOSCount==0) return 0;
         else
-        return (proposedDDOSCount/totalSumofGetsFromClients)*getCount;
+        {
+            if(proposedDDOSCount<getCount){
+                    proposedDDOSCount = Math.round(getCount); 
+            }
+            return Math.round((proposedDDOSCount/totalSumofGetsFromClients)*getCount);
+        
+        }
+        
         
     }
    

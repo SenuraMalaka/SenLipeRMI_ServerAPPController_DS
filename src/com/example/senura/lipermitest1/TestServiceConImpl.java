@@ -49,7 +49,11 @@ public class TestServiceConImpl implements TestServiceController{
     @Override
     public void setProposedDDOSCount(int count) {
         HostCalculator.setProposedDDOSCount(count);
-        System.out.println("setProposedDDOSCount called and the value is = "+HostCalculator.proposedDDOSCount);
+    }
+
+    @Override
+    public boolean isProposedDDOSCountSet() {
+        return (HostCalculator.getProposedDDOSCount()!=0);
     }
 
  
