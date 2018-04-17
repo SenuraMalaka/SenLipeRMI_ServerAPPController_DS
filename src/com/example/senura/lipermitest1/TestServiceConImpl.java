@@ -56,6 +56,16 @@ public class TestServiceConImpl implements TestServiceController{
         return (HostCalculator.getProposedDDOSCount()!=0);
     }
 
+    @Override
+    public void sendGetDone(int count, String ipAddress, String hostName) {
+        HostRewardCalculator.setRewardStatusText(count, ipAddress, hostName);
+    }
+
+    @Override
+    public String getRewardsStatusText() {
+        return HostRewardCalculator.getMainServerRewardsText();
+    }
+
  
 
     

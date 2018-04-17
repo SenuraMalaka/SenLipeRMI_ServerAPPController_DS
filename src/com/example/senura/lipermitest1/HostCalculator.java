@@ -55,6 +55,7 @@ public class HostCalculator {
             ipAdresses.clear();
             hostNames.clear();
             proposedDDOSCount=0;
+            HostRewardCalculator.clearMainServerRewardsText();//Belongs to main server ; reward status textbox content
     }
     
     public static void setProposedDDOSCount(int count){
